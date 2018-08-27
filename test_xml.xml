@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><AmdocsConfig xmlns:md="amdocs.com" version="1.1">
+  <customization ID="b7b99fd50768ac2b">
+    <crm ID="307ccfb6174210a6">
+      <bossBaseConfig ID="ee6465237da36e55">
+        <aif ID="b6e5d9292d53d06e">
+          <Connections ID="b715850923f591e4">
+            <Connection ID="51ce0a769ca821f6" overrideid="f66db8cc131b8edc">
+              <md:isarray>true</md:isarray>
+            </Connection>
+            <Connection ID="8838bb55c2ea993e" overrideid="bdd27b3ae98f020f">
+              <ConnPoolSize ID="9fee75223db4467e">1000</ConnPoolSize>
+            </Connection>
+            <Connection ID="4cc3c461f7420584" overrideid="821a0b91fe178256">
+              <ConnPoolSize ID="98cb11e8463be9cd">1000</ConnPoolSize>
+            </Connection>
+            <Connection ID="3ab7977ca72b1e4d" overrideid="8cd997ef6511a639">
+              <ConnPoolSize ID="adc90bfd4b9c9cfb">1000</ConnPoolSize>
+            </Connection>
+            <Connection ID="1b5b5e3523a0112a" overrideid="d447ad39e8115746">
+              <ConnPoolSize ID="7bf98675e923230b">1000</ConnPoolSize>
+            </Connection>
+          </Connections>
+          <ExternalProviders ID="da12e51e85977306">
+            <AppFramework ID="dd5f7dc2eb5b6dd0" overrideid="9ce5a956629b56a7">
+              <md:isarray>true</md:isarray>
+            </AppFramework>
+            <AppFramework ID="49fe79899c7384f6" overrideid="3683e5729d437b96">
+              <BindingHandlerClass ID="4c33aedf3e61a391">com.amdocs.oss.sm.core.integration.aif.AppFrameworkHandler</BindingHandlerClass>
+            </AppFramework>
+          </ExternalProviders>
+        </aif>
+        <clarifyEnv ID="a8dae8df1cb359da">
+          <DataMapper ID="ed1c1553d1af8c46">
+            <DatamapInitializationFiles ID="6068a23a4d8a1c77">
+              <File ID="c6777a4d7e71033a" overrideid="8d5307e2d79fe558">
+                <md:isarray>true</md:isarray>
+              </File>
+              <File ID="d59386340c099145">
+                <name ID="6d9978478e626b8a">STLAsmsDataMaps.xml</name>
+              </File>
+            </DatamapInitializationFiles>
+          </DataMapper>
+        </clarifyEnv>
+        <Boss ID="19a0de9bc11ffdc4">
+          <ReferenceData ID="0379de36ed524c87">
+            <CacheManagers ID="5c83f8fd23006588">
+              <ServiceCatalog ID="b1d81d7a03bd05be">
+                <Caches ID="dcc61dc95a4751a8">
+                  <CacheConfig ID="e20b418ec622b14e" overrideid="0e759733e372d14d">
+                    <md:isarray>true</md:isarray>
+                  </CacheConfig>
+                  <CacheConfig ID="f1d1e296605e3ef3">
+                    <Name ID="7ccf33835af66a8c">ServiceRelationsByPartNumbers</Name>
+                    <PopulationType ID="9ff4492cfad332be">D</PopulationType>
+                    <ElementsFactory ID="846868bdbdb183a0">
+                      com.clarify.asms.kernel.utility.data.servicecatalog.xbean.GetServiceRelationsByPartNumbersXB
+                    </ElementsFactory>
+                  </CacheConfig>
+                </Caches>
+              </ServiceCatalog>
+              <ExpressionEvaluatorManager ID="e92f54d8987d3a1f">
+                <CheckValidationFrequency ID="9f90d22a267952da">1800</CheckValidationFrequency>
+                <Caches ID="71301ef44b7a2c8f">
+                  <CacheConfig ID="d298df6b83d83ee2" overrideid="0e759733e372d14d">
+                    <md:isarray>true</md:isarray>
+                  </CacheConfig>
+                  <CacheConfig ID="788f8143e0c76a4c">
+                    <Name ID="496b85ba011c18c8">GetAttrValueRules</Name>
+                    <MaxElements ID="738bd1112c24124c">2000</MaxElements>
+                    <PopulationType ID="08a982745955000f">S</PopulationType>
+                    <ElementsFactory ID="001a882aaea81727">com.clarify.boss.utility.cache.cacheframework.xbean.NullCacheEntryFactoryXB</ElementsFactory>
+                    <BootstrapLoader ID="12744b02f38056a2">
+                      com.amdocs.oss.kernel.sm.common.valueEvaluator.cacheLoader.GetValueEvaluatorRules
+                    </BootstrapLoader>
+                    <repopulateOnNull ID="d4e6b50ad138a2fa">true</repopulateOnNull>
+                  </CacheConfig>
+                </Caches>
+                <md:inherit>../../CacheTemplates/CacheManagersTemplate</md:inherit>
+              </ExpressionEvaluatorManager>
+            </CacheManagers>
+          </ReferenceData>
+          <Integration ID="913c02bc033e48c7">
+            <Inbound ID="23358e64c5f4d547">
+              <JaxbPackageList ID="f4bbd573fd7020c2">
+                org.xmlsoap.schemas.soap.envelope:com.clarify.asms.v7000.capabilities.manageorder:com.clarify.asms.v7500.capabilities.dependentnotification:com.clarify.boss.capabilities.manageresourceservice.v7:com.clarify.asms.v7000.capabilities.managediagnostictest:com.clarify.boss.capabilities.manageactivationjob.v7:com.clarify.boss.capabilities.manageworkforceactivity.v7:com.clarify.boss.capabilities.managenetworkactivation.v7:com.sun.java.products.oss.xml.serviceactivation:com.sun.java.products.oss.xml.common:com.clarify.boss.capabilities.ossjmaj.v7:com.clarify.asms.v7100.capabilities.manageservicefault:com.clarify.asms.v7100.capabilities.common.manageservicefault:com.clarify.asms.v7100.capabilities.manageservicefault.notify:com.clarify.asms.v7100.capabilities.manageservicefaultmodify:com.clarify.asms.v7100.capabilities.manageservicefaultcancel:org.ossj.xml.ordermanagement.v1_0:com.amdocs.oss.aua.xmlns.auai.ordermanagement.v2_0:com.amdocs.oss.aua.xmlns.auai.common.v2_0:com.amdocs.oss.aua.xmlns.auai.inventory.v2_0:com.amdocs.oss.aua.xmlns.auai.common_cbeparty.v2_0:com.amdocs.oss.aua.xmlns.auai.common_cberesource.v2_0:com.amdocs.oss.aua.xmlns.auai.common_cbeservice.v2_0:com.clarify.asms.v8000.capabilities.mnagenerator:amdocs.core.ossj_ordermanagement.dat._3:amdocs.core.ossj_common.dat._3:amdocs.core.ossj_inventory.dat._3:amdocs.core.ossj_common_cbeparty.dat._3:amdocs.core.ossj_common_cberesource.dat._3:amdocs.core.ossj_common_cbeservice.dat._3:amdocs.core.ossj_common_cbecustomer.dat._3:amdocs.core.ossj_common_cbeproduct.dat._3:com.clarify.boss._2007._01.managebamevent:com.amdocs.oss.sm.v9000.capabilities.managejob:com.cramer.activationschema:com.singtel.group.serviceordermanagement.serviceorderlifecycle.types.v1
+              </JaxbPackageList>
+            </Inbound>
+          </Integration>
+        </Boss>
+      </bossBaseConfig>
+      <bossConfigComponents ID="8e2646fbee0e1791">
+        <aif ID="be3d47d356f1006b">
+          <Resources ID="9be676851c1194c0">
+            <WebService ID="11f098117558321c" overrideid="8513c4e322534486">
+              <md:isarray>true</md:isarray>
+            </WebService>
+            <JMSQueue ID="daa4f09618fc5aef">
+              <Name ID="2438b74019eb9bb1">SendESFRequest_MXOJMSXML</Name>
+              <Connection ID="0943a4e94f1ebf12">../../../Connections/Connection[sourceid()='bdd27b3ae98f020f']</Connection>
+              <ContainerType ID="b39cd47c5c6797a8">WebLogic</ContainerType>
+              <JmsDestinationJndiName ID="49f5d47e2c08d751">com.clarify.jms.boss.sf.externalServicefulfillment.request</JmsDestinationJndiName>
+              <JmsConnFactoryJndiName ID="3aa055e0471b7f9b">com.clarify.jms.bridge.connectionFactory.boss.LBCF</JmsConnFactoryJndiName>
+            </JMSQueue>
+            <WebService ID="90dcecd869196d8d">
+              <Name ID="c96a1923ae5e50f5">ServiceInventory_WS</Name>
+              <ServiceUrl ID="13fa707c648303f4">
+                http://$(asc2tools:asms.config.connection.esbm.ws.host):$(asc2tools:asms.config.connection.esbm.ws.port)/serviceordermanagement/serviceorderlifecycle/ServiceOrderService?wsdl
+              </ServiceUrl>
+              <Connection ID="0ef70665687128ba">SI_Connection</Connection>
+            </WebService>
+          </Resources>
+          <Connections ID="5f04a86129533c05">
+            <WSConnection ID="62431a0d9cf9edbe" overrideid="03c5e9f22be319b9">
+              <md:isarray>true</md:isarray>
+            </WSConnection>
+            <WSConnection ID="0d793573a13ad0fd" overrideid="7104298f0c2151f9">
+              <Name ID="7fd6edadad819e63">SI_Connection</Name>
+              <senderConfiguration ID="9f494ea6d6e76fd0">
+                <Action ID="772cbbde930e09ea">Authenticate</Action>
+                <User ID="a688e879f0dc6819">
+                  <Type ID="6e73887ed1460b62">ProxyUser</Type>
+                  <Name ID="2449efd4e6db8ce5">admin</Name>
+                  <Password ID="091fb7db4495698b">&lt;UEM&gt;K=&lt;key&gt;.asc.sys.encryption.0;C=1522142646108;M=4RlrZnY905JHH{d3h3gK122;&lt;/UEM&gt;</Password>
+                </User>
+              </senderConfiguration>
+              <JaxWsHandlers ID="fb9ecf2ae3d7ec6c" overrideid="8b1cdf0328abe83e">
+                <md:isarray>true</md:isarray>
+              </JaxWsHandlers>
+              <JaxWsHandlers ID="67801315d1989997">
+                <JaxWsHandlerClassName ID="71d88d9b762f402f">com.amdocs.oss.kernel.sm.services.queryinventorysvc.QIWSHandler</JaxWsHandlerClassName>
+              </JaxWsHandlers>
+            </WSConnection>
+          </Connections>
+        </aif>
+        <clarifyEnv ID="ed0863b817a93b9f">
+          <DataMapper ID="ef7ef85acab2ce0b">
+            <DatamapInitializationFiles ID="85b447f191e9205a">
+              <md:order>File@10da09425020fb97 post File@8d5307e2d79fe558;File@c92c76eb72508782 post File@10da09425020fb97;File@2dfa64dc046e537b post File@c92c76eb72508782;File@20c0a2f7df15448a post File@2dfa64dc046e537b</md:order>
+              <File ID="84b67200eb39794e" overrideid="8d5307e2d79fe558">
+                <md:isarray>true</md:isarray>
+              </File>
+              <File ID="20c0a2f7df15448a" overrideid="20c0a2f7df15448a">
+                <name ID="143d626318af33ab">STLAsmsDataMaps.xml</name>
+              </File>
+              <File ID="5984ea7ec6d372ea" overrideid="d59386340c099145" removed=""/>
+            </DatamapInitializationFiles>
+          </DataMapper>
+          <USER_PACKAGE ID="66fbdf0d067b2fc6">
+            <md:enum>
+              <row ID="6b1d862a3fcab020" overrideid="6b1d862a3fcab020">
+                <val ID="93f8119f8536c7e1">com.amdocs.oss.sm.stl.core</val>
+                <desc ID="92628551443da570">com.amdocs.oss.sm.stl.core</desc>
+              </row>
+              <row ID="e07400badd2473ee" overrideid="e07300badd2472ee">
+                <md:isarray>true</md:isarray>
+              </row>
+            </md:enum>
+            com.amdocs.oss.sm.stl.core
+          </USER_PACKAGE>
+        </clarifyEnv>
+        <Boss ID="f37fd88d5109b130">
+          <Core ID="c0e96ffc58890649">
+            <SpringBeanFactoryResourceSelector ID="9a8fe84ab25f4095">cust-beanfactory-registry.xml</SpringBeanFactoryResourceSelector>
+          </Core>
+          <ActionMapping ID="d769d482b6e48917">
+            <md:display>Action Mapping</md:display>
+            <md:description>Action Mapping</md:description>
+            <ServiceActionMapping ID="7e8df0e9c0bef951">
+              <md:isarray>true</md:isarray>
+              <md:display>Service Action Mapping</md:display>
+              <md:description>Service Action Mapping</md:description>
+              <ASOMAction ID="c69df6ad6a23ce79">
+                <md:type>string</md:type>
+                <md:description>ASOM Action</md:description>
+                <md:display>ASOM Action</md:display>
+              </ASOMAction>
+              <ESFAction ID="64ad5e82822da9de">
+                <md:type>string</md:type>
+                <md:description>ESF Action</md:description>
+                <md:display>ESF Action</md:display>
+              </ESFAction>
+            </ServiceActionMapping>
+            <ComponentActionMapping ID="0035b8284078a6ca">
+              <md:isarray>true</md:isarray>
+              <md:display>Component Action Mapping</md:display>
+              <md:description>Component Action Mapping</md:description>
+              <ASOMAction ID="1dff2ef6a4e4f5c3">
+                <md:type>string</md:type>
+                <md:description>ASOM Action</md:description>
+                <md:display>ASOM Action</md:display>
+              </ASOMAction>
+              <ESFAction ID="70e96e45a4076290">
+                <md:type>string</md:type>
+                <md:description>ESF Action</md:description>
+                <md:display>ESF Action</md:display>
+              </ESFAction>
+            </ComponentActionMapping>
+            <ServiceActionMapping ID="5488f6b42965c725">
+              <ASOMAction ID="3bbbbfb37dd3d856">Provide</ASOMAction>
+              <ESFAction ID="0b62254097489139">Create</ESFAction>
+            </ServiceActionMapping>
+            <ComponentActionMapping ID="18397670e0848056">
+              <ASOMAction ID="856b6a07cfcd2715">Provide</ASOMAction>
+              <ESFAction ID="ce169ec66d924800">Added</ESFAction>
+            </ComponentActionMapping>
+            <ServiceActionMapping ID="7a0bbf6dcf27672a">
+              <ASOMAction ID="28d70cfb9519ee6c">Modify</ASOMAction>
+              <ESFAction ID="4ac06e330ba6c674">Modify</ESFAction>
+            </ServiceActionMapping>
+            <ServiceActionMapping ID="300234cb4714b578">
+              <ASOMAction ID="8df8223a789d8381">Cease</ASOMAction>
+              <ESFAction ID="f15bdfe283f7b065">Disconnect</ESFAction>
+            </ServiceActionMapping>
+            <ServiceActionMapping ID="f62262163f1d1ca0">
+              <ASOMAction ID="9d43005473f8aee6">Suspend</ASOMAction>
+              <ESFAction ID="4c77627280efb8d9">Modify</ESFAction>
+            </ServiceActionMapping>
+            <ServiceActionMapping ID="dff94b45badeba3d">
+              <ASOMAction ID="06d771331235c1b8">Resume</ASOMAction>
+              <ESFAction ID="58bf283d51ac4e12">Modify</ESFAction>
+            </ServiceActionMapping>
+            <ServiceActionMapping ID="dff94b45badeba3e">
+              <ASOMAction ID="06d771331235c1b9">ProvideMove</ASOMAction>
+              <ESFAction ID="58bf283d51ac4e13">Modify</ESFAction>
+            </ServiceActionMapping>
+            <ComponentActionMapping ID="0d2ac37f9f58edd6">
+              <ASOMAction ID="c936083d83b94f1e">Modify</ASOMAction>
+              <ESFAction ID="494f6a441636d3f0">Modified</ESFAction>
+            </ComponentActionMapping>
+            <ComponentActionMapping ID="9c75b5a0bcf77e83">
+              <ASOMAction ID="d3cbacd47ae57104">Cease</ASOMAction>
+              <ESFAction ID="322e93bb33598eb9">Deleted</ESFAction>
+            </ComponentActionMapping>
+            <ComponentActionMapping ID="9b75b5a0bcf77e83">
+              <ASOMAction ID="d3cbacb47ae57104">Suspend</ASOMAction>
+              <ESFAction ID="322e93bb33598bb9">Modified</ESFAction>
+            </ComponentActionMapping>
+            <ComponentActionMapping ID="1b75b5a0bcf77e83">
+              <ASOMAction ID="n3cbacb47ae57104">Resume</ASOMAction>
+              <ESFAction ID="322e93bb33598hb9">Modified</ESFAction>
+            </ComponentActionMapping>
+            <ComponentActionMapping ID="1b75b5a0bcf77e84">
+              <ASOMAction ID="n3cbacb47ae57105">ProvideMove</ASOMAction>
+              <ESFAction ID="322e93bb33598hc9">Modified</ESFAction>
+            </ComponentActionMapping>
+          </ActionMapping>
+          <ESFOrderLevelAttributes ID="493cb3da90f1103b">
+            <md:display>ESF Order Level Attributes</md:display>
+            <md:description>ESF Order Level Attributes</md:description>
+            <OrderAttributes ID="a8df62c4a3693f50">
+              <md:isarray>true</md:isarray>
+              <md:display>Order Attributes</md:display>
+              <md:description>Order Attributes</md:description>
+              <AttributeName ID="803ed24a6e3f15fb">
+                <md:type>string</md:type>
+                <md:description>Attribute Name</md:description>
+                <md:display>Attribute Name</md:display>
+              </AttributeName>
+            </OrderAttributes>
+            <OrderAttributes ID="31e77c04e71d96c0">
+              <AttributeName ID="49195ad27374b79a">Desired Due Date</AttributeName>
+            </OrderAttributes>
+          </ESFOrderLevelAttributes>
+          <MasteringPriority ID="4c2e841b4f9709e4">
+            <md:display>MasteringPriority</md:display>
+            <md:description>MasteringPriority</md:description>
+            <EHMastering ID="539aa19f9b361a1e">
+              <md:isarray>true</md:isarray>
+              <md:display>EHMastering</md:display>
+              <md:description>EHMastering</md:description>
+              <ServiceName ID="1e89c0db23bfd9a8">
+                <md:type>string</md:type>
+                <md:description>ServiceName</md:description>
+                <md:display>ServiceName</md:display>
+              </ServiceName>
+              <MasteringRank ID="5e3924c888b259f3">
+                <md:type>integer</md:type>
+                <md:description>MasteringRank</md:description>
+                <md:display>MasteringRank</md:display>
+              </MasteringRank>
+            </EHMastering>
+            <EHMastering ID="68923a71c280f48d">
+              <ServiceName ID="c1b7356ac5f022be">Mobile Access CFS</ServiceName>
+              <MasteringRank ID="93a784af24897715">30</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="9a684c0eb0cb96e6">
+              <ServiceName ID="203e56414f30ce7f">Mobile Voice CFS</ServiceName>
+              <MasteringRank ID="854e6684932a8df7">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="45ca2838d692902e">
+              <ServiceName ID="13c4f5cb36b4014c">Mobile Data CFS</ServiceName>
+              <MasteringRank ID="8770d861cf9bef91">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="86a51bb01e1f3a66">
+              <ServiceName ID="64a2fa917797de2f">Broadband CFS</ServiceName>
+              <MasteringRank ID="33089a90213cabec">30</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="f0cb23ab5d7009a1">
+              <ServiceName ID="70ca290ead51f7b0">Copper Access CFS</ServiceName>
+              <MasteringRank ID="96dda49109fad83e">20</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="e61d13512035565e">
+              <ServiceName ID="c09a6619a35a89e9">RG CFS</ServiceName>
+              <MasteringRank ID="cb0046d0dd6318ec">10</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="62bcd664a38a933a">
+              <ServiceName ID="34f1b09a63da813a">Fiber Access CFS</ServiceName>
+              <MasteringRank ID="180cdbc1c00ad871">20</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="ba276958b5d0dcd2">
+              <ServiceName ID="7271046aa3969e78">Number Portability CFS</ServiceName>
+              <MasteringRank ID="4ffac4385350ef0c">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="3720b80630423725">
+              <ServiceName ID="d63ea7879ac033cc">SMS Outgoing CFS</ServiceName>
+              <MasteringRank ID="1472940a69244116">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="a6a3f12102949da4">
+              <ServiceName ID="9583ae1d40b31990">SingTel WiFi CFS</ServiceName>
+              <MasteringRank ID="02e2d58271115ad6">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="ff52e0af0f4256d6">
+              <ServiceName ID="37b996557a27498f">Roaming CFS</ServiceName>
+              <MasteringRank ID="387b6acfaddfcd43">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="fcc97f41b0c2c9a5">
+              <ServiceName ID="5e787536d8d65ee7">McAfee Mobile Security Suite CFS</ServiceName>
+              <MasteringRank ID="ced2e017ce0c7c8d">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="555ebfaf23a32fda">
+              <ServiceName ID="cce484bb86ab3625">Voice Outgoing CFS</ServiceName>
+              <MasteringRank ID="48ee16da9ce2ada1">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="c88c9cce8bc56ac3">
+              <ServiceName ID="4f8b005450d57c11">MMS CFS</ServiceName>
+              <MasteringRank ID="9598b0648921cf8c">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="4db52397b254f5a7">
+              <ServiceName ID="2c8cb9cd811a7a57">Messaging CFS</ServiceName>
+              <MasteringRank ID="079f78b1fc9e998e">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="28ed51fa73e7ff27">
+              <ServiceName ID="b2ec8199c8d46c1a">Store &amp; Share CFS</ServiceName>
+              <MasteringRank ID="658128f087fad7a3">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="8e4f79c9109a6c11">
+              <ServiceName ID="db3b256845221ee0">VoIP CFS</ServiceName>
+              <MasteringRank ID="5c1b506fa2cb1d3a">30</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="66f56af2cc3abd29">
+              <ServiceName ID="34450ae97b41c02e">DEL CFS</ServiceName>
+              <MasteringRank ID="0dbbf53b861673a9">30</MasteringRank>
+            </EHMastering>
+            <KSUMastering ID="a58cf1ca75a38c97">
+              <md:isarray>true</md:isarray>
+              <md:display>KSUMastering</md:display>
+              <md:description>KSUMastering</md:description>
+              <ServiceName ID="364784ad680c0a5d">
+                <md:type>string</md:type>
+                <md:description>ServiceName</md:description>
+                <md:display>ServiceName</md:display>
+              </ServiceName>
+              <MasteringRank ID="5e17141f9e412415">
+                <md:type>integer</md:type>
+                <md:description>MasteringRank</md:description>
+                <md:display>MasteringRank</md:display>
+              </MasteringRank>
+            </KSUMastering>
+            <KSUMastering ID="878e1ef5aa011453">
+              <ServiceName ID="b6165022c3a238ce">Mobile Access CFS</ServiceName>
+              <MasteringRank ID="6385d393a8ff6e50">20</MasteringRank>
+            </KSUMastering>
+            <EHMastering ID="65da5c0de760c54c">
+              <ServiceName ID="8744f9094ead6bef">National Outgoing Call CFS</ServiceName>
+              <MasteringRank ID="56277f020971cfe4">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="09f89176d6260ab8">
+              <ServiceName ID="db3bc8540c9b8cfb">International Calling CFS</ServiceName>
+              <MasteringRank ID="638b4cfeb5bbf891">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="c5dc3e2e53a2499c">
+              <ServiceName ID="e28e01fa27149b4c">Broadband Plan CFS</ServiceName>
+              <MasteringRank ID="9b9e7270ddae94c4">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="157ce5bedb02eb19">
+              <ServiceName ID="8033c485221b59c5">Family Protection CFS</ServiceName>
+              <MasteringRank ID="d34dc6c8ca5bb337">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="4df0734590c30895">
+              <ServiceName ID="aaa5cf5d0573176e">Anti-Spam CFS</ServiceName>
+              <MasteringRank ID="9f2d1cf34bcc5ed9">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="750143bc10ee1573">
+              <ServiceName ID="dc7add43582e2312">IPTV CFS</ServiceName>
+              <MasteringRank ID="56a1273fd8164244">30</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="a6c20b29ae4ddfef">
+              <ServiceName ID="ed8871f69cfd7d5d">Femtocell CFS</ServiceName>
+              <MasteringRank ID="9d502d5a23126109">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="e3f30daa10a086b0">
+              <ServiceName ID="775d4409e1b14e84">Anti-Virus CFS</ServiceName>
+              <MasteringRank ID="9f348a9fcc7919d6">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="f8b2cf338b8f0d70">
+              <ServiceName ID="3f34e90f4fd9a70a">STB CFS</ServiceName>
+              <MasteringRank ID="9c0e0c1537de5890">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="17f0825a6d49e555">
+              <ServiceName ID="3c8229b23cfab29b">Fixed Voice Features CFS</ServiceName>
+              <MasteringRank ID="7220e7acc9709144">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="837c1d8755381b8b">
+              <ServiceName ID="b59ee4f35b3fe0f0">OneMail CFS</ServiceName>
+              <MasteringRank ID="61d34749b2c835bd">20</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="3b11ed03dd5bc4a1">
+              <ServiceName ID="6fe6cf032de49d81">OneNumber CFS</ServiceName>
+              <MasteringRank ID="3112242237430935">20</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="fff2326abd780eb3">
+              <ServiceName ID="eb4740b8d3c69ad4">VIDD CFS</ServiceName>
+              <MasteringRank ID="cca639f97c78f25c">20</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="3f1dca989c1def05">
+              <ServiceName ID="1d69f3f75b772673">ICCS CFS</ServiceName>
+              <MasteringRank ID="23a61104a1f6ffda">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="150b1078601f1e1b">
+              <ServiceName ID="aa2f0c7d0de03a93">Wireless SG Mobile</ServiceName>
+              <MasteringRank ID="13b5bec015697b3a">15</MasteringRank>
+            </EHMastering>
+            <EHMastering ID="0438f22660acea06">
+              <ServiceName ID="7ff2125e4114e0b8">Wireless SG Fixed</ServiceName>
+              <MasteringRank ID="5bf1095ec173a2aa">15</MasteringRank>
+            </EHMastering>
+            <KSUMastering ID="970f614738131431">
+              <ServiceName ID="083d17ca4383c5fc">STB CFS</ServiceName>
+              <MasteringRank ID="41aecd8f1739ea7f">10</MasteringRank>
+            </KSUMastering>
+            <KSUMastering ID="a9f6aa7e5339eb7f">
+              <ServiceName ID="9631a4a9ce5977e3">Broadband CFS</ServiceName>
+              <MasteringRank ID="ed44da1caca19c93">25</MasteringRank>
+            </KSUMastering>
+            <KSUMastering ID="fac0d253feea74e4">
+              <ServiceName ID="1aac9aaeac46a952">Femtocell CFS</ServiceName>
+              <MasteringRank ID="88ce7fe6115179e9">10</MasteringRank>
+            </KSUMastering>
+            <KSUMastering ID="5ba9494b1fe19836">
+              <ServiceName ID="356b91a64e04149c">IPTV CFS</ServiceName>
+              <MasteringRank ID="9134a9ef3555de5a">30</MasteringRank>
+            </KSUMastering>
+            <KSUMastering ID="c91719e87e01b643">
+              <ServiceName ID="a30e10565cc3c474">OneMail CFS</ServiceName>
+              <MasteringRank ID="c1b083da25ad6798">20</MasteringRank>
+            </KSUMastering>
+            <KSUMastering ID="a234593b851d14a3">
+              <ServiceName ID="b2aaebd1abb0a057">VIDD CFS</ServiceName>
+              <MasteringRank ID="4bc6dc90b05fbe4a">20</MasteringRank>
+            </KSUMastering>
+            <KSUMastering ID="4184baf3df3069f2">
+              <ServiceName ID="e5e35fe2d8c4ddbe">DEL CFS</ServiceName>
+              <MasteringRank ID="b593185a3b242029">25</MasteringRank>
+            </KSUMastering>
+            <KSUMastering ID="3d4662df3ecd59c7">
+              <ServiceName ID="5d0ed17ef979b33c">RG CFS</ServiceName>
+              <MasteringRank ID="136cadb7cde191d7">15</MasteringRank>
+            </KSUMastering>
+            <KSUMastering ID="0e62f82e789746f2">
+              <ServiceName ID="7d580b60b2305fb2">VoIP CFS</ServiceName>
+              <MasteringRank ID="eaf79d8ce2276dd0">30</MasteringRank>
+            </KSUMastering>
+            <KSUMastering ID="d5984ad25c54ca12">
+              <ServiceName ID="6a7d5a7f36abe889">Fiber Access CFS</ServiceName>
+              <MasteringRank ID="2e35275e92743b43">10</MasteringRank>
+            </KSUMastering>
+            <KSUMastering ID="3168f20c9da6e41d">
+              <ServiceName ID="c3a26ee89512f2ce">Copper Access CFS</ServiceName>
+              <MasteringRank ID="82a9381cfec037e6">10</MasteringRank>
+            </KSUMastering>
+            <KSUMastering ID="d490c115657719f9">
+              <ServiceName ID="1e2b979b164dc1ff">OneNumber CFS</ServiceName>
+              <MasteringRank ID="15fb5500cb851a3d">20</MasteringRank>
+            </KSUMastering>
+            <KSUMastering ID="afe596553f826fb7">
+              <ServiceName ID="aac0440e2f59a3f3">Wireless SG Fixed</ServiceName>
+              <MasteringRank ID="87bd8b24374b4238">20</MasteringRank>
+            </KSUMastering>
+            <KSUMastering ID="b1c3304333447283">
+              <ServiceName ID="7725e65511cb3306">ICCS CFS</ServiceName>
+              <MasteringRank ID="940ae79dbf6a5248">20</MasteringRank>
+            </KSUMastering>
+          </MasteringPriority>
+          <ESFCeaseAttributes ID="35ee5a6bbb5d7f1c">
+            <md:display>ESF Cease Attributes</md:display>
+            <md:description>ESF Cease Attributes</md:description>
+            <CeaseAttributes ID="d8b3a6e3ef86cc70">
+              <md:isarray>true</md:isarray>
+              <md:display>Cease Attributes</md:display>
+              <md:description>Cease Attributes</md:description>
+              <AttributeName ID="faa5cda616594cbc">
+                <md:type>string</md:type>
+                <md:description>Attribute Name</md:description>
+                <md:display>AttributeName</md:display>
+              </AttributeName>
+            </CeaseAttributes>
+            <CeaseAttributes ID="13d99b090f69199a">
+              <AttributeName ID="5fc4e444202a92aa">Porting_Out</AttributeName>
+            </CeaseAttributes>
+            <CeaseAttributes ID="7b1b17c710082706">
+              <AttributeName ID="b37ca99650fbea1f">PortingOut</AttributeName>
+            </CeaseAttributes>
+            <CeaseAttributes ID="fdb60f1b0e73c883">
+              <AttributeName ID="50d494980dfe0b3b">Email_Forwarding</AttributeName>
+            </CeaseAttributes>
+            <CeaseAttributes ID="482b08dd45f5922c">
+              <AttributeName ID="08d64633a324796a">IMMEDIATE_DISCONNECT</AttributeName>
+            </CeaseAttributes>
+            <CeaseAttributes ID="02a3547649030a06">
+              <AttributeName ID="c8b6afcb7978a8fc">MD_Activation</AttributeName>
+            </CeaseAttributes>
+            <CeaseAttributes ID="ecbc9170255dcb02">
+              <AttributeName ID="9c0022794384c744">Bypass_Provisioning</AttributeName>
+            </CeaseAttributes>
+            <CeaseAttributes ID="842dc5ef396f321c">
+              <AttributeName ID="2a237caf4b14b9f0">Cessation_Reason</AttributeName>
+            </CeaseAttributes>
+            <CeaseAttributes ID="842dc5et396f321c">
+              <AttributeName ID="2a237cat4b14b9f0">Preactivation</AttributeName>
+            </CeaseAttributes>
+          </ESFCeaseAttributes>
+        </Boss>
+      </bossConfigComponents>
+    </crm>
+    <md:customize>../kernel</md:customize>
+  </customization>
+</AmdocsConfig>
