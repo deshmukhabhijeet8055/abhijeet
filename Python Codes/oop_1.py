@@ -1,6 +1,6 @@
 #object oriented programming in python
 
-class Dog:
+class Dog():
 
 	def __init__(self, name, breed = 'Lab'):
 		self.breed = breed
